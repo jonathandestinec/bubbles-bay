@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react';
 import { Droplets, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-export default function Navbar({ onBookClick }) {
+
+interface NavbarProps{
+    onBookClick: any
+}
+export default function Navbar({ onBookClick }: NavbarProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenu, setMobileMenu] = useState(false);
 
