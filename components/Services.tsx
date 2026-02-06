@@ -5,7 +5,11 @@ import SectionHeading from './SectionHeading'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const Services = ({ setIsModalOpen, activeIndex, setActiveIndex, services, handleNext, handlePrev }: { setIsModalOpen: (open: boolean) => void, activeIndex: number, setActiveIndex: (index: number) => void, services: any[], handleNext: () => void, handlePrev: () => void }) => {
-
+    const browserWindow = typeof window !== 'undefined' ? window : null;
+    let numberValue = 0
+    if(browserWindow){
+        numberValue = (100 / (browserWindow?.innerWidth < 768 ? 1 : 2.5))
+    }
     return (
         <div>
             {/* Services */}
@@ -21,7 +25,7 @@ const Services = ({ setIsModalOpen, activeIndex, setActiveIndex, services, handl
                 <div className="relative w-full h-[480px] md:h-[510px] px-6 md:scale-75">
                     <div className="max-w-7xl mx-auto relative h-[450px] md:h-[550px]">
                         <motion.div
-                            animate={{ x: `calc(-${activeIndex * (100 / (window?.innerWidth < 768 ? 1 : 2.5))}% )` }}
+                            animate={{ x: `calc(-${activeIndex * numberValue}% )` }}
                             transition={{ type: "spring", stiffness: 80, damping: 20 }}
                             className="flex gap-6 h-full"
                         >
