@@ -2,7 +2,13 @@
 
 import { motion } from 'framer-motion';
 
-export default function SectionHeading({ subtitle, title, light = false }) {
+interface SectionHeadingProps {
+    subtitle: string;
+    title: React.ReactNode;
+    light?: boolean;
+}
+
+export default function SectionHeading({ subtitle, title, light = false }: SectionHeadingProps) {
     return (
         <div className="mb-16">
             <motion.div
