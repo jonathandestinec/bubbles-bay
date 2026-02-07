@@ -21,16 +21,29 @@ import BookingModal from '@/components/BookingModal';
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, [])
+
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % 2);
+    setActiveIndex((prev) => (prev + 1) % (isMobile ? 3 : 2));
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + 2) % 2);
+    setActiveIndex((prev) => (prev - 1 + (isMobile ? 3 : 2)) % (isMobile ? 3 : 2));
   };
 
-  // Hold on now, This part is sensitive.. changing the index of any item in this list would affect the services courosel UI :)
+  // Hold on now, This part is very sensitive.. changing the index of any item in this list would affect the services courosel UI :)
   const services = [
     {
       name: "View All Services",

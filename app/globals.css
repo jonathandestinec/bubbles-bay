@@ -14,6 +14,9 @@ html {
 }
 
 @layer utilities {
+  .carousel-immediate-parent:last-child {
+    padding-right: 24px;
+  }
   .text-balance {
     text-wrap: balance;
   }
@@ -428,6 +431,10 @@ html {
   .animate-gradient-shift {
     animation: gradient-shift 3s ease infinite;
     background-size: 200% 200%;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 

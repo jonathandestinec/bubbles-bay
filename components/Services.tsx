@@ -26,6 +26,7 @@ const Services = ({ setIsModalOpen, activeIndex, setActiveIndex, services, handl
                     <div className="max-w-7xl mx-auto relative h-[450px] md:h-[400px]">
                         <motion.div
                             animate={{ x: `calc(-${activeIndex * numberValue}% )` }}
+
                             transition={{ type: "spring", stiffness: 80, damping: 20 }}
                             className="flex gap-6 h-full"
                         >
@@ -34,7 +35,7 @@ const Services = ({ setIsModalOpen, activeIndex, setActiveIndex, services, handl
                                     return (
                                         // This is the last item on the list, and it is just a card that says View all services and opens the full services page
 
-                                        <motion.div key={i}>
+                                        <motion.div key={i} className='relative w-full md:w-[450px] h-full rounded-[3.5rem] overflow-hidden group shadow-2xl shadow-blue-900/10 border border-gray-100 bg-white shrink-0'>
                                             <div className="relative w-full md:w-[450px] h-full rounded-[3.5rem] overflow-hidden group shadow-2xl shadow-blue-900/10 border border-gray-100 bg-[#00227b] shrink-0">
 
                                                 <img
@@ -42,6 +43,7 @@ const Services = ({ setIsModalOpen, activeIndex, setActiveIndex, services, handl
                                                     alt="View all services"
                                                     className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700"
                                                 />
+
 
                                                 <div className="absolute inset-0 p-10 md:p-14 flex flex-col justify-center text-white">
                                                     <div className="mb-6 w-14 h-14 bg-[#fdd835] rounded-2xl flex items-center justify-center text-[#00227b] shadow-lg transform -translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
